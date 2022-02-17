@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>All timetables</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<table class="table_dark">
+<tr>
+    <td>ID</td>
+    <td>Discipline</td>
+    <td>Group</td>
+    <td>Classroom</td>
+    <td>Teacher</td>
+    <td>Date</td>
+    <td>Time</td>
+</tr>
+<tr th:each="timetable : ${Timetables}">
+    <td th:text="*{timetable.id}">ID</td>
+    <td th:text="*{timetable.discipline.name}">Discipline</td>
+    <td th:text="*{timetable.group.groupNumber}">Group</td>
+    <td th:text="*{timetable.classroom.number}">Classroom</td>
+    <td th:text="*{timetable.teacher.firstName + ' ' + timetable.teacher.lastName}">Teacher</td>
+    <td th:text="*{timetable.date}">Date</td>
+    <td th:text="*{timetable.time}">Time</td>
+</tr>
+</table>
+</body>
+</html>
